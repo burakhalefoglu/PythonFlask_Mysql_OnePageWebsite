@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+<meta name="author" content="">
+<meta name="description" content="">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{title}}</title>
+<link rel="shortcut icon" href="static/images/favicon.png">
+
+<link rel="stylesheet" href="static/css/stylesheet-main.css">
+<link rel="stylesheet" href="static/css/default-stylesheet.css">
+<link rel="stylesheet" href="static/css/indigo-color.css">
+<link rel="stylesheet" href="static/css/social.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+
+
+<style>
+:root {
+ --header-bg-color: #030301;
+ --nav-item-color: #f5f5f5;
+ --hero-bg-color: #030301;
+ --section-1-bg-color: #111111;
+ --section-2-bg-color: #030301;
+ --section-3-bg-color: #111111;
+ --section-4-bg-color: #030301;
+ --section-5-bg-color: #111111;
+ --section-6-bg-color: #030301;
+ --section-7-bg-color: #111111;
+ --section-8-bg-color: #030301;
+ --section-9-bg-color: #111111;
+ --section-10-bg-color: #030301;
+ --footer-bg-color: #000000;
+}
+</style>
+</head>
+<body>
+  {% include "includes/HeaderNavbar.html" %}
+  {% include "includes/HeroSection.html" %}
+  <main id="main">
+    {% include "includes/AboutUsSection.html" %}
+    {% include "includes/video.html" %}
+    {% include "includes/ServicesSection.html" %}
+    {% include "includes/PricingSection.html" %}
+    {% include "includes/TeamSection.html" %}
+    {% include "includes/ContactSection.html" %}
+  </main>
+  {% include "includes/Footer.html" %}
+  {% include "includes/LoginRegister.html" %}
+  
+  <!-- Modal Menu Navigation -->
+<div id="menu" class="p-0 odd modal fade" role="dialog" aria-labelledby="menu" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-slideout" role="document">
+    <div class="modal-content full">
+      <div class="modal-header" data-dismiss="modal"><i class="icon-close"></i></div>
+      <div class="menu modal-body">
+        <div class="row w-100">
+          <div class="items p-0 col-12 text-center"> </div>
+          <div class="contacts p-0 col-12 text-center"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div id="scroll-to-top" class="odd scroll-to-top"> <a href="#slider" class="smooth-anchor"> <i class="icon-arrow-up"></i> </a> </div>
+
+
+  <script src="static/js/jquery.min.js"></script> 
+  <script src="static/js/jquery.easing.min.js"></script> 
+  <script src="static/js/ponyfill.min.js"></script> 
+  <script src="static/js/popper.min.js"></script> 
+  <script src="static/js/bootstrap.min.js"></script> 
+  <script src="static/js/slider.min.js"></script> 
+  <script src="static/js/gallery.min.js"></script> 
+  <script src="static/js/animation.min.js"></script> 
+  <script src="static/js/particles.min.js"></script>
+  <script src="static/js/custom_script.js"></script>
+  <script src="static/js_lg/login.js"></script> 
+
+{% if HaveToLogin==True %}
+   <script type="text/javascript">
+    $(document).ready(function(){
+        openLoginModal();
+    });
+</script>
+{% else %}   
+{% endif %}
+{% if PostFail==True %}
+   <script type="text/javascript">
+    $(document).ready(function(){
+        openRegisterModal();
+    });
+</script>
+{% else %}   
+{% endif %}
+{% if Resetfail==True %}
+   <script type="text/javascript">
+    $(document).ready(function(){
+        openForgetModel();
+    });
+</script>
+{% else %}   
+{% endif %}
+</body>
+</html>

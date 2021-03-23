@@ -1,0 +1,242 @@
+
+<!-- Sign In Section -->
+<div id="sign" class="p-0 odd modal fade" role="dialog" aria-labelledby="sign" aria-hidden="false">
+    <div class="modal-dialog modal-dialog-slideout" role="document">
+      <div class="modal-content full">
+        <div class="modal-header" data-dismiss="modal"><i  align="right" class="icon-close"></i></div>
+        <div class="modal-body">
+          <form method="post" role="form">
+            <div class="col-12 col-md-4 offset-md-4 p-0 align-self-center text-center">
+              <div class="row">
+                <div class="col-12 p-0 pb-3">
+                  <h2 class="my-3">Sign In</h2>
+                  <div class="bar"></div>
+                  <h4 class="m-0">Welcome Back Sign in to Continue</h4>
+                  <p class="my-1">Don't Have an Account? <a href="#" class="primary-color" data-toggle="modal" data-target="#register" >Register Now</a></p>
+                  <div>{% include "includes/message.html" %}</div>
+                </div>
+              </div>
+              <div class="row">  
+              <div class="col-12 p-0 input-group">
+                <input type="email" class="form-control" placeholder="Email Address" name="Email" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required value="{{request.form.Email }}">
+              </div>
+              <div class="col-12 p-0 input-group">
+                <input type="password" class="form-control" placeholder="Password" name="Password" oninvalid="TextMessage(this);" oninput="TextMessage(this);" required value="{{request.form.Password }}">
+              </div>
+              <input id="LoginId" name="LoginId" type="hidden" value="1">
+            </div>
+              <p class="my-1" align="right" ><a href="#" class="primary-color" data-toggle="modal" data-target="#ForgetModel">Forgot Password?</a></p>
+               <div class="row">
+                <div class="col-12 p-0 input-group align-self-center">
+                  <button type="submit"  class="btn mx-auto primary-button">LOGIN <i class="icon-login"></i></button>
+                </div>
+              </div>
+              <font size="3" style="margin-top: 15px" >Or</font>
+              <div class="social-container">
+                      <a href="/login/google" ><i style = "color: white"  class="fab fa-google fa-lg"></i></a>
+           </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ 
+
+
+  
+  
+  <!-- Register Section -->
+  <div id="register" class="p-0 odd modal fade" role="dialog" aria-labelledby="register" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-slideout" role="document">
+      <div class="modal-content full">
+        <div class="modal-header" data-dismiss="modal"><i  align="right" class="icon-close"></i></div>
+        <div class="modal-body">
+          <form  method="post" role="form">
+            <div class="col-12 col-md-4 offset-md-4 p-0 align-self-center text-center">
+              <div class="row">
+                <div class="col-12 p-0 pb-3">
+                  <h2 class="my-3">Register</h2>
+                  <div class="bar"></div>
+                  <h4 class="m-0">Create your Account!</h4>
+                  <p class="my-1">Already Have an Account? <a href="#" class="primary-color" data-toggle="modal" data-target="#sign">Sign In!</a></p>
+            <div>{% include "includes/message.html" %}</div>
+           <br/>
+
+                </div>
+
+              <div style="position: relative; margin: auto;" class="social-container">
+
+                      <a href="/login/google" ><i style = "color: white"  class="fab fa-google fa-lg"></i></a>
+              </div>
+
+
+              </div>
+              <br>
+               <font size="3" style="margin-top: 15px" >Or</font>
+
+
+              <div class="row">
+              <div class="col-12 p-0 input-group">
+               <input type="text" id="CompanyName" class="form-control" placeholder="Company Name" name="CompanyName" oninvalid="TextMessage(this);" oninput="TextMessage(this);" required value="{{request.form.CompanyName }}">
+              </div>
+              <div class="col-12 p-0 input-group">
+                <input type="email" class="form-control" placeholder="Email Address" name="Email" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required value="{{request.form.Email }}">
+              </div>
+              <div class="col-12 p-0 input-group">
+                <input type="password" id="password" class="form-control" placeholder="Password" name="Password" onkeyup='checkPassword();' oninvalid="ChectPasswordForCustom(this);" oninput="ChectPasswordForCustom(this);" required value="{{request.form.Password }}">
+              </div>                                                                    
+              <div class="col-12 p-0 input-group">
+                <input type="password" id="confirm_password" class="form-control" placeholder="Confirm Password" onkeyup='checkPassword();' name="Password" required >
+              </div>
+                <span id='messageBox'></span>
+                <p><input type="checkbox" required oninvalid="this.setCustomValidity('check plz')" onchange="this.setCustomValidity('')" name="terms">   I have read and accept <a href="/terms" target="_blank">SOMETHING Terms and Conditions</a></p>  
+            </div>
+                <input id="LoginId" name="LoginId" type="hidden" value="2">               
+              <br />
+              <div class="row">
+                <div class="col-12 p-0 input-group align-self-center">
+                  <button id="submitRegister"  type="submit"  class="btn mx-auto primary-button" disabled>REGISTER <i class="icon-check"></i></button>
+                </div>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+  
+  
+<!-- Forget Section -->
+<div id="ForgetModel" class="p-0 odd modal fade" role="dialog" aria-labelledby="ForgetModel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-slideout" role="document">
+      <div class="modal-content full">
+        <div class="modal-header" data-dismiss="modal"><i align="right" class="icon-close"></i></div>
+        <div class="modal-body">
+          <form  method="post" role="form">
+            <div class="col-12 col-md-4 offset-md-4 p-0 align-self-center text-center">
+              <div class="row">
+                <div class="col-12 p-0 pb-3">
+                  <h2 class="my-3">Reset Password</h2>
+                  <div class="bar"></div>
+                 <p class="my-1">Forget Your Password!</p>
+                </div>
+              </div>
+              
+              <div class="row">
+              <div class="col-12 p-0 input-group">
+                <input type="email" class="form-control" placeholder="Email Address" name="Email" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required value="{{request.form.Email }}">
+              </div>
+            </div>
+            <input id="LoginId" name="LoginId" type="hidden" value="3">
+
+                  <p id="loginid" class="my-1" align="right">Return to <a href="#" class="primary-color" data-toggle="modal" data-target="#sign" >Login Page</a></p>
+              <br>
+               <div class="row">
+                <div class="col-12 p-0 input-group align-self-center">
+                  <button type="submit"  class="btn mx-auto primary-button">Reset Password <i class="icon-login"></i></button>
+                </div>
+              </div>
+              <font size="3" style="margin-top: 15px" >Or</font>
+              <div class="social-container">
+                      <a href="#" ><i style = "color: white"  class="fab fa-facebook-f fa-lg"></i></a>
+                      <a href="#" ><i style = "color: white"  class="fab fa-google fa-lg"></i></a>
+                      <a href="#" ><i style = "color: white"  class="fab fa-linkedin-in fa-lg"></i></a>
+                      <a href="#" ><i style = "color: white"  class="fab fa-github fa-lg"></i></a>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<script>
+
+
+  function InvalidMsg(textbox) {
+    if (textbox.value == '') {
+        textbox.setCustomValidity('Please fill in the marked fields.');
+    }
+    else if (textbox.validity.typeMismatch){
+        textbox.setCustomValidity('please enter a valid email address');
+    }
+    else {
+       textbox.setCustomValidity('');
+    }
+    return true;
+};
+
+
+  function TextMessage(textbox) {
+    if (textbox.value == '') {
+        textbox.setCustomValidity('Please fill in the marked fields.');
+    }
+    else {
+       textbox.setCustomValidity('');
+    }
+    return true;
+};
+
+
+  function checkPassword(){
+  
+   if (document.getElementById('password').value ==
+    document.getElementById('confirm_password').value) {
+
+    document.getElementById('messageBox').style.color = 'green';
+    document.getElementById('messageBox').innerHTML = 'matching';
+    document.getElementById('submitRegister').disabled = false;
+
+  } else {
+    document.getElementById('messageBox').style.color = 'red';
+    document.getElementById('messageBox').innerHTML = 'not matching';
+    document.getElementById('submitRegister').disabled = true;
+  }
+
+};
+
+
+function ChectPasswordForCustom(textbox)
+  {
+    var re1 = /[0-9]/;
+    var re2 = /[a-z]/;
+    var  re3 = /[A-Z]/;
+
+    if(textbox.value == "") {
+
+      textbox.setCustomValidity('Please fill in the marked fields.');
+      return false;
+
+    }
+    else if(textbox.value < 6) {
+        textbox.setCustomValidity("Password must contain at least six characters!");
+        return false;
+      }
+    else if(!re1.test(textbox.value)) {
+        textbox.setCustomValidity("Error: password must contain at least one number (0-9)!");
+        return false;
+      }
+     else if(!re2.test(textbox.value)) {
+        textbox.setCustomValidity("Error: password must contain at least one lowercase letter (a-z)!");
+        return false;
+      }
+      else if(!re3.test(textbox.value)) {
+        textbox.setCustomValidity("Error: password must contain at least one uppercase letter (A-Z)!");
+        return false;
+      }
+      else {
+       textbox.setCustomValidity('');
+            }
+    return true;
+    
+  };
+</script>
